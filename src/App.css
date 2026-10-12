@@ -1,38 +1,384 @@
-.App {
-  text-align: center;
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: "Noto Sans Devanagari", "Mangal", Arial, sans-serif;
+  background: #f2f3f7;
+  color: #222;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header {
+  padding: 18px;
+  background: #17365d;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.brand h1 {
+  margin: 0;
+  font-size: 24px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.brand p {
+  margin: 6px 0 0;
+}
+
+.gallery-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+  color: #555;
+}
+
+.gallery {
+  padding: 10px;
+}
+
+.biodata-card {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto 25px;
+  padding: 18px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px #00000012;
+}
+
+.pdf-header-message {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #8b1e1e;
+  padding: 12px 5px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #c9a44c;
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 13px;
+}
+
+.image-frame {
+  width: 100%;
+  text-align: center;
+}
+
+.image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 1000px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.footer {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 25px 18px;
+  text-align: center;
+  line-height: 1.8;
+  color: #17365d;
+  background: white;
+  border-top: 3px solid #c9a44c;
+}
+
+/* Footer page: screen पर hidden */
+.pdf-footer-page {
+  display: none;
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+  .brand h1 {
+    font-size: 21px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .gallery {
+    padding: 8px;
+  }
+
+  .biodata-card {
+    padding: 10px;
+  }
+
+  .pdf-header-message {
+    font-size: 15px;
+  }
+}
+
+/* PDF / Print */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .app,
+  .gallery {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .biodata-card {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .pdf-header-message {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 8px 4px;
+    margin-bottom: 8px;
+  }
+
+  .image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 245mm;
+    object-fit: contain;
+  }
+
+  /* Dedicated final A4 page */
+  .pdf-footer-page {
+    display: flex;
+    width: 100%;
+    height: 280mm;
+    min-height: 280mm;
+    align-items: center;
+    justify-content: center;
+    padding: 5mm;
+    margin: 0;
+
+    break-before: page;
+    page-break-before: always;
+    break-after: auto;
+    page-break-after: auto;
+
+    background: white;
+  }
+
+  .footer-page-content {
+    width: 100%;
+    max-height: 270mm;
+    overflow: hidden;
+    padding: 16mm 12mm;
+    text-align: center;
+    color: #713333;
+    border: 3px double #b38b40;
+    outline: 1px solid #b38b40;
+    outline-offset: -8px;
+  }
+
+  .footer-decor {
+    font-size: 25px;
+    margin-bottom: 18px;
+  }
+
+  .footer-page-content h1 {
+    font-size: 26px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+    color: #8b1e1e;
+  }
+
+  .footer-page-content h2 {
+    font-size: 20px;
+    line-height: 1.7;
+    margin: 16px 0;
+  }
+
+  .footer-page-content h3 {
+    font-size: 18px;
+    margin: 18px 0 12px;
+  }
+
+  .footer-page-content p,
+  .footer-page-content li {
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .footer-intro {
+    margin: 18px 0;
+  }
+
+  .footer-page-content ul {
+    text-align: left;
+    padding-left: 25px;
+    margin: 10px 0;
+  }
+
+  .footer-page-content li {
+    margin-bottom: 8px;
+  }
+
+  .footer-divider {
+    border-top: 2px solid #c9a44c;
+    margin: 20px auto;
+    width: 75%;
+  }
+
+  .footer-society {
+    color: #8b1e1e;
+  }
+
+  .footer-slogan {
+    font-weight: bold;
+  }
+
+  .footer-closing {
+    margin-top: 24px;
+    color: #8b1e1e;
+    font-weight: bold;
+  }
+}
+
+/* PDF का अंतिम पेज */
+.pdf-footer-page {
+  display: none;
+}
+
+@media print {
+  .pdf-footer-page {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 270mm;
+    height: auto;
+    box-sizing: border-box;
+    page-break-before: always;
+    break-before: page;
+    page-break-after: auto;
+    break-after: auto;
+    padding: 10mm;
+  }
+
+  .footer-page-content {
+    display: block;
+    width: 100%;
+    max-width: 175mm;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    box-sizing: border-box;
+    padding: 18mm 12mm;
+    border: 4px double #b88646;
+    text-align: center;
+    color: #713b27;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .footer-page-content h1 {
+    font-size: 30px;
+    margin: 12px 0 20px;
+    color: #8b1e2d;
+  }
+
+  .footer-page-content h2 {
+    font-size: 22px;
+    margin: 14px 0;
+  }
+
+  .footer-page-content .footer-intro {
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 22px 0;
+  }
+
+  .footer-page-content .footer-divider {
+    width: 75%;
+    margin: 20px auto;
+    border-top: 2px solid #b88646;
+  }
+
+  .footer-page-content h3 {
+    font-size: 19px;
+    margin: 18px 0;
+  }
+
+  .footer-page-content ul {
+    display: block;
+    text-align: left;
+    margin: 12px auto 20px;
+    padding-left: 25px;
+    max-width: 145mm;
+  }
+
+  .footer-page-content li {
+    display: list-item;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+
+  .footer-page-content .footer-society {
+    display: block !important;
+    visibility: visible !important;
+    font-size: 23px;
+    margin-top: 22px;
+    color: #8b1e2d;
+  }
+
+  .footer-page-content .footer-slogan {
+    display: block !important;
+    visibility: visible !important;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 14px 0;
+  }
+
+  .footer-page-content .footer-closing {
+    display: block !important;
+    margin-top: 25px;
+    font-size: 18px;
   }
 }
