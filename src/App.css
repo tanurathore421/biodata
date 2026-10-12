@@ -382,3 +382,133 @@ body {
     font-size: 18px;
   }
 }
+
+
+
+/* PDF LAST PAGE */
+.pdf-footer-page {
+  display: flex !important;
+  visibility: visible !important;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #fff;
+  color: #222;
+  page-break-before: always;
+  break-before: page;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.footer-page-content {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  color: #222 !important;
+}
+
+.footer-page-content h1 {
+  display: block !important;
+  visibility: visible !important;
+  color: #a00000 !important;
+  font-size: 32px;
+  margin: 20px 0;
+}
+
+.footer-page-content h2 {
+  display: block !important;
+  visibility: visible !important;
+  color: #8b4513 !important;
+  font-size: 22px;
+  margin: 15px 0;
+}
+
+.footer-intro {
+  display: block !important;
+  visibility: visible !important;
+  color: #222 !important;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 25px 0;
+}
+
+.footer-page-content h3 {
+  display: block !important;
+  visibility: visible !important;
+  color: #a00000 !important;
+  font-size: 21px;
+  margin: 20px 0;
+}
+
+.footer-page-content ul {
+  display: block !important;
+  visibility: visible !important;
+  text-align: left;
+  color: #222 !important;
+  font-size: 17px;
+  line-height: 2;
+  padding-left: 35px;
+  margin: 20px auto;
+}
+
+.footer-page-content li {
+  display: list-item !important;
+  visibility: visible !important;
+  color: #222 !important;
+  margin-bottom: 12px;
+}
+
+.footer-divider {
+  display: block !important;
+  border-top: 2px solid #d6ad60;
+  margin: 25px 0;
+}
+
+.footer-decor,
+.footer-society,
+.footer-slogan,
+.footer-closing {
+  display: block !important;
+  visibility: visible !important;
+  color: #8b4513 !important;
+  margin: 20px 0;
+}
+
+@media print {
+  .pdf-footer-page {
+    display: flex !important;
+    visibility: visible !important;
+    min-height: 95vh;
+    height: 95vh;
+    page-break-before: always;
+    break-before: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .footer-page-content,
+  .footer-page-content h1,
+  .footer-page-content h2,
+  .footer-page-content h3,
+  .footer-page-content p,
+  .footer-page-content ul,
+  .footer-page-content li {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 12mm;
+}
